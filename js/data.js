@@ -1,6 +1,10 @@
 // seleziono gli elementi del DOM
-const myHtml = document.querySelector("main");
-const myButton = document.querySelector(".button-card");
+const myContentArea = document.querySelector("main");
+const myHeaderButton = document.getElementById("navbar-selection");
+const selectAll = document.getElementById("all");
+const selectAnimal = document.getElementById("animal");
+const selectVegetable = document.getElementById("vegetable");
+const selectUser = document.getElementById("user");
 
 
 // creo una lista array degli elementi
@@ -121,39 +125,49 @@ const myIcon = [
 
 //console.log(myIcon);
 
-// creo le classi dai inserire nel tag main
+// creo un ciclo con le classi dai inserire nel html
 for (let i = 0; i < myIcon.length; i++) {
+	// creo un div con classe "button-card"
 	const divCard = document.createElement("div");
 	divCard.classList.add("button-card");
+	// all'interno inserisco il tag "a"
 	const divLink = document.createElement("a");
-	divLink.append(myIcon[i].family, myIcon[i].prefix, myIcon[i].name, myIcon[i].color);
+	divLink.setAttribute("href", "#");
 	divCard.append(divLink);
-	console.log(divCard);
+	// e all'interno inserisco il tag "i" che contegono le proprietà array
+	const divLinkIcon = document.createElement("i");
+	divLinkIcon.setAttribute("class", myIcon[i].family);
+	divLinkIcon.classList.add(myIcon[i].prefix + myIcon[i].name);
+	divLink.append(divLinkIcon);
+	console.log(divCard);	
 }
 
-
-
 // seleziono i colori degli elementi per tipologia
-// const colorAnimal = myIcon.filter((selectionColAnim) => {
-// 	if (selectionColAnim.color === 'orange') {
-// 		myButton.append(myIcon.color);
-// 		return true;
-// 	}
-// });
+const colorAnimal = myIcon.filter((selectionColAnim) => {
+	if (selectionColAnim.color === 'orange') {
+		return true;
+	}	
+});
 
-// const colorFruit = myIcon.filter((selectionColFruit) => {
-// 	if (selectionColFruit.color === 'green') {
-// 		return true;
-// 	}
-// });
+const colorFruit = myIcon.filter((selectionColFruit) => {
+	if (selectionColFruit.color === 'green') {
+		return true;
+	}
+});
 
-// const colorHuman = myIcon.filter((selectionColHuman) => {
-// 	if (selectionColHuman.color === 'blue') {
-// 		return true;
-// 	}
-// });
+const colorHuman = myIcon.filter((selectionColHuman) => {
+	if (selectionColHuman.color === 'blue') {
+		return true;
+	}
+});
 
 //console.log(colorAnimal, colorFruit, colorHuman);
+
+
+// la navbar raggruppa le icone per tipologia di visualizzazione
+// myHeaderButton.addEventListener("change"
+
+// );
 
 
 
