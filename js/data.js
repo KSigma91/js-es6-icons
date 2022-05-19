@@ -1,5 +1,7 @@
 // seleziono gli elementi del DOM
 const myHtml = document.querySelector("main");
+const myButton = document.querySelector(".button-card");
+
 
 // creo una lista array degli elementi
 const myIcon = [
@@ -119,26 +121,39 @@ const myIcon = [
 
 //console.log(myIcon);
 
+// creo le classi dai inserire nel tag main
+for (let i = 0; i < myIcon.length; i++) {
+	const divCard = document.createElement("div");
+	divCard.classList.add("button-card");
+	const divLink = document.createElement("a");
+	divLink.append(myIcon[i].family, myIcon[i].prefix, myIcon[i].name, myIcon[i].color);
+	divCard.append(divLink);
+	console.log(divCard);
+}
+
+
+
 // seleziono i colori degli elementi per tipologia
-const colorAnimal = myIcon.filter((selectionColAnim) => {
-	if (selectionColAnim.color === 'orange') {
-		return true;
-	}
-});
+// const colorAnimal = myIcon.filter((selectionColAnim) => {
+// 	if (selectionColAnim.color === 'orange') {
+// 		myButton.append(myIcon.color);
+// 		return true;
+// 	}
+// });
 
-const colorFruit = myIcon.filter((selectionColFruit) => {
-	if (selectionColFruit.color === 'green') {
-		return true;
-	}
-});
+// const colorFruit = myIcon.filter((selectionColFruit) => {
+// 	if (selectionColFruit.color === 'green') {
+// 		return true;
+// 	}
+// });
 
-const colorHuman = myIcon.filter((selectionColHuman) => {
-	if (selectionColHuman.color === 'blue') {
-		return true;
-	}
-});
+// const colorHuman = myIcon.filter((selectionColHuman) => {
+// 	if (selectionColHuman.color === 'blue') {
+// 		return true;
+// 	}
+// });
 
-console.log(colorAnimal, colorFruit, colorHuman);
+//console.log(colorAnimal, colorFruit, colorHuman);
 
 
 
