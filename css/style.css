@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+/* barra di navigazione */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #29B1DD;
+    height: 60px;
+}
+
+.navbar > span {
+    color: white;
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.navbar #navbar-selection {
+    height: 20px;
+}
+
+/* area icone */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button-card {
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    /* debug */
+    background: red;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+}
