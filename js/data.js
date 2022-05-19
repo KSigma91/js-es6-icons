@@ -139,6 +139,7 @@ for (let i = 0; i < myIcon.length; i++) {
 	divLinkIcon.setAttribute("class", myIcon[i].family);
 	divLinkIcon.classList.add(myIcon[i].prefix + myIcon[i].name);
 	divLink.append(divLinkIcon);
+	myContentArea.append(divCard);
 	console.log(divCard);	
 }
 
@@ -149,14 +150,14 @@ const colorAnimal = myIcon.filter((selectionColAnim) => {
 	}	
 });
 
-const colorFruit = myIcon.filter((selectionColFruit) => {
-	if (selectionColFruit.color === 'green') {
+const colorVegetable = myIcon.filter((selectionColVeget) => {
+	if (selectionColVeget.color === 'green') {
 		return true;
 	}
 });
 
-const colorHuman = myIcon.filter((selectionColHuman) => {
-	if (selectionColHuman.color === 'blue') {
+const colorUser = myIcon.filter((selectionColUser) => {
+	if (selectionColUser.color === 'blue') {
 		return true;
 	}
 });
