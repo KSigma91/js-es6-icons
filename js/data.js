@@ -1,4 +1,8 @@
-[
+// seleziono gli elementi del DOM
+const myHtml = document.querySelector("main");
+
+// creo una lista array degli elementi
+const myIcon = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +116,30 @@
 		color: 'blue'
 	}
 ];
+
+//console.log(myIcon);
+
+// seleziono i colori degli elementi per tipologia
+const colorAnimal = myIcon.filter((selectionColAnim) => {
+	if (selectionColAnim.color === 'orange') {
+		return true;
+	}
+});
+
+const colorFruit = myIcon.filter((selectionColFruit) => {
+	if (selectionColFruit.color === 'green') {
+		return true;
+	}
+});
+
+const colorHuman = myIcon.filter((selectionColHuman) => {
+	if (selectionColHuman.color === 'blue') {
+		return true;
+	}
+});
+
+console.log(colorAnimal, colorFruit, colorHuman);
+
+
+
+
