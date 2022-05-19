@@ -130,15 +130,22 @@ for (let i = 0; i < myIcon.length; i++) {
 	// creo un div con classe "button-card"
 	const divCard = document.createElement("div");
 	divCard.classList.add("button-card");
+
 	// all'interno inserisco il tag "a"
 	const divLink = document.createElement("a");
 	divLink.setAttribute("href", "#");
 	divCard.append(divLink);
+
 	// e all'interno inserisco il tag "i" che contegono le proprietà array
 	const divLinkIcon = document.createElement("i");
 	divLinkIcon.setAttribute("class", myIcon[i].family);
 	divLinkIcon.classList.add(myIcon[i].prefix + myIcon[i].name);
 	divLink.append(divLinkIcon);
+
+	// aggiungo del testo nel tag "a"
+	const textIconCard = document.createElement("h5");
+	textIconCard.append(myIcon[i].name.toUpperCase());
+	divLink.append(textIconCard);
 	myContentArea.append(divCard);
 	console.log(divCard);	
 }
