@@ -38,6 +38,7 @@ i {
 
 .navbar #navbar-selection {
     height: 20px;
+    outline: 0;
 }
 
 /* area icone */
@@ -58,4 +59,20 @@ main {
     width: 220px;
     min-height: 110px;
     margin: 20px;
+}
+
+h5 {
+    color: #000;
+}
+
+.orange {
+    color: orange;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
 }

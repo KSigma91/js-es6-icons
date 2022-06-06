@@ -1,11 +1,6 @@
 // seleziono gli elementi del DOM
 const myContentArea = document.querySelector("main");
 const myHeaderButton = document.getElementById("navbar-selection");
-const selectAll = document.getElementById("all");
-const selectAnimal = document.getElementById("animal");
-const selectVegetable = document.getElementById("vegetable");
-const selectUser = document.getElementById("user");
-
 
 // creo una lista array degli elementi
 const myIcon = [
@@ -123,62 +118,60 @@ const myIcon = [
 	}
 ];
 
-// creo un ciclo con le classi dai inserire nel html
-textIconCard = addCard();
-
-
-// seleziono i colori degli elementi per tipologia
-const colorAnimal = myIcon.filter((selectionColAnim) => {
-	if (selectionColAnim.type === 'orange') {
-		return true;
-	}	
-});
-
-const colorVegetable = myIcon.filter((selectionColVeget) => {
-	if (selectionColVeget.color === 'green') {
-		return true;
-	}
-});
-
-const colorUser = myIcon.filter((selectionColUser) => {
-	if (selectionColUser.color === 'blue') {
-		return true;
-	}
-});
-
-//console.log(colorAnimal, colorFruit, colorHuman);
-
-
 // la navbar raggruppa le icone per tipologia di visualizzazione
-// myHeaderButton.addEventListener("change"
+myHeaderButton.addEventListener('change', selectType);
 
-// );
+myHeaderButton.value = 'all';
+addCard(myIcon);
+
+function selectType() {	
+	console.log(myHeaderButton.value);
+	switch(myHeaderButton.value) {
+		case 'animal':
+			const colorAnimal = myIcon.filter((element) => element.type === 'animal');
+			addCard(colorAnimal);
+			break;
+		case 'vegetable':
+			const colorVegetable = myIcon.filter((element) => element.type === 'vegetable');
+	 		addCard(colorVegetable);
+	 		break;
+	 	case 'user':
+	 		const colorUser = myIcon.filter((element) => element.type === 'user');
+	 		addCard(colorUser);	 
+			 break;
+		default:
+			addCard(myIcon);
+	}
+}
+		
 
 
-// funzionalità di sistema
-function addCard() {
-	for (let i = 0; i < myIcon.length; i++) {
-		// creo un div con classe "button-card"
+// creo un ciclo con le classi dai inserire nel html
+function addCard(myList) {
+	console.log(myList);
+	// svuota 
+	myContentArea.innerHTML = "";
+
+	myList.forEach(element => {
 		const divCard = document.createElement("div");
 		divCard.classList.add("button-card");
-	
-		// all'interno inserisco il tag "a"
 		const divLink = document.createElement("a");
 		divLink.setAttribute("href", "#");
 		divCard.append(divLink);
 	
 		// e all'interno inserisco il tag "i" che contegono le proprietà array
 		const divLinkIcon = document.createElement("i");
-		divLinkIcon.setAttribute("class", myIcon[i].family);
-		divLinkIcon.classList.add(myIcon[i].prefix + myIcon[i].name);
+		// divLinkIcon.setAttribute("class", element.family);
+		divLinkIcon.classList.add(element.family);
+		divLinkIcon.classList.add(element.prefix + element.name);
+		divLinkIcon.classList.add(element.color);
 		divLink.append(divLinkIcon);
 	
 		// aggiungo del testo nel tag "a"
 		const textIconCard = document.createElement("h5");
-		textIconCard.append(myIcon[i].name.toUpperCase());
+		textIconCard.append(element.name.toUpperCase());
 		divLink.append(textIconCard);
 		myContentArea.append(divCard);
 		console.log(divCard);	
-	}
+	});
 }
-
